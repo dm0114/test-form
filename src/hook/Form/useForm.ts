@@ -1,25 +1,26 @@
-import { reactive } from 'vue';
+import React from "react";
+import { FieldValues, UseFormProps, UseFormReturn } from "./types";
 
-interface FormOptions <TValue = unknown> {    
-    initialValues: TValue;  // MayRef 추가 필요
-}
 /**
  * reslove initialValues Function
  */
 
-export function useForm(opts?: FormOptions) {
-    /**
-     * path management
-     * formState
-     * initialValues
-     * updateFormValue
-     * resetFormValue
-     * validateForm
-     * submitForm
-     */
-    const formValue = reactive(opts?.initialValues);
-
-    return {
-        formValue,        
-    };
+export function useForm<
+  TFieldValues extends FieldValues = FieldValues,
+  TContext = any,
+  TTransformedValues extends FieldValues | undefined = undefined
+>(props: UseFormProps<TFieldValues, TContext> = {}) {
+  /**
+   * path management
+   * formState
+   * initialValues
+   * updateFormValue
+   * resetFormValue
+   * validateForm
+   * submitForm
+   */
+  const _formControl = React.useRef<
+    UseFormReturn<TFieldValues, TContext, TTransformedValues> | undefined
+  >();
+  
 }

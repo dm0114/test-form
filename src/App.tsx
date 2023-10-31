@@ -1,13 +1,11 @@
-import { useState } from 'react'
 import './App.css'
-import { useForm } from 'react-hook-form'
+import TextField from './components/TextField'
 
-function App() {
-  const state = useForm()
+function App() {  
   
   return (
     <>
-      
+      <TextField />
     </>
   )
 }
